@@ -19,7 +19,7 @@ int main() {
     std::cout << "Значение: " << integer << ", тип: " << typeid(integer).name() << "\n";
     std::cout << "Значение: " << decimal << ", тип: " << typeid(decimal).name() << "\n";
     std::cout << "Значение: " << text << ", тип: " << typeid(text).name() << "\n";
-    
+    //Завершение программы
     return 0;
 }
 
