@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <windows.h>
+#include <clocale>
+
+int main() {
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
+    double a, b;
+    std::cout << "Введите первое число: ";
+    std::cin >> a;
+    std::cout << "Введите второе число: ";
+    std::cin >> b;
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Сумма: " << (a + b) << "\n";
+    std::cout << "Разность: " << (a - b) << "\n";
+    std::cout << "Произведение: " << (a * b) << "\n";
+    std::cout << "Деление: " << (a / b) << "\n";
+    std::cout << "Целочисленное деление: " 
+              << (static_cast<int>(a) / static_cast<int>(b)) << "\n";
+    std::cout << "Остаток от деления: " << std::fmod(a, b) << "\n";
+    std::cout << "Возведение в степень: " << std::pow(a, b) << "\n";
+
+    return 0;
+}
