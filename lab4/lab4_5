@@ -1,0 +1,48 @@
+// Задача: простой калькулятор (+, -, *, /) с проверкой деления на ноль
+
+#include <iostream>   // Для ввода-вывода
+#include <iomanip>    // Для setprecision
+#include <windows.h>  // Для кодировки консоли
+
+int main() {
+    // Установка кодировки UTF-8
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
+
+    double a, b;      // Два числа
+    char operation;   // Знак операции
+
+    std::cout << "Введите первое число: ";
+    std::cin >> a;
+    std::cout << "Введите второе число: ";
+    std::cin >> b;
+    std::cout << "Введите операцию (+, -, *, /): ";
+    std::cin >> operation;
+
+    // Формат: 2 знака после запятой
+    std::cout << std::fixed << std::setprecision(2);
+
+    switch (operation) {
+        case '+':
+            std::cout << "Результат: " << a + b << "\n";
+            break;
+        case '-':
+            std::cout << "Результат: " << a - b << "\n";
+            break;
+        case '*':
+            std::cout << "Результат: " << a * b << "\n";
+            break;
+        case '/':
+            if (b == 0) {
+                std::cout << "Ошибка: деление на ноль невозможно.\n";
+            } else {
+                std::cout << "Результат: " << a / b << "\n";
+            }
+            break;
+        default:
+            std::cout << "Ошибка: неизвестная операция.\n";
+            break;
+    }
+
+    return 0;
+}
