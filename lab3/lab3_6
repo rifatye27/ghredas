@@ -1,0 +1,34 @@
+#include <iostream>
+#include <iomanip>
+#include <windows.h>
+#include <clocale>
+
+int main() {
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
+    int choice;
+    double temp, result;
+
+    std::cout << "Конвертер температур\n";
+    std::cout << "1. Из °C в °F\n";
+    std::cout << "2. Из °F в °C\n";
+    std::cout << "Выберите вариант (1 или 2): ";
+    std::cin >> choice;
+
+    std::cout << "Введите температуру: ";
+    std::cin >> temp;
+
+    if (choice == 1) {
+        result = (temp * 9.0 / 5.0) + 32.0;
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << temp << " °C = " << result << " °F\n";
+    } else if (choice == 2) {
+        result = (temp - 32.0) * 5.0 / 9.0;
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << temp << " °F = " << result << " °C\n";
+    } else {
+        std::cout << "Неверный выбор!\n";
+    }
+
+    return 0;
+}
