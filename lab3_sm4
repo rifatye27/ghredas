@@ -1,0 +1,40 @@
+// Программа вычисляет возраст пользователя по дате рождения с учётом текущего дня
+
+#include <iostream>  // Для ввода-вывода
+#include <ctime>     // Для получения текущей даты
+#include <windows.h> // Для установки кодировки UTF-8 в консоли Windows
+
+int main() {
+    // Установка кодировки UTF-8 для корректного отображения кириллицы
+    SetConsoleCP(65001);        // Кодировка ввода
+    SetConsoleOutputCP(65001);  // Кодировка вывода
+
+    int day, month, year;  // День, месяц и год рождения
+
+    std::cout << "Введите день рождения: ";   // Запрос дня
+    std::cin >> day;
+    std::cout << "Введите месяц рождения: ";  // Запрос месяца
+    std::cin >> month;
+    std::cout << "Введите год рождения: ";    // Запрос года
+    std::cin >> year;
+
+    // Получение текущей даты
+    time_t now = time(0);
+    tm* local = localtime(&now);
+
+    int current_day = local->tm_mday;       // Текущий день
+    int current_month = local->tm_mon + 1;  // Текущий месяц (tm_mon начинается с 0)
+    int current_year = local->tm_year + 1900; // Текущий год
+
+    // Вычисление возраста
+    int age = current_year - year;
+
+    // Если день рождения в этом году ещё не наступил — уменьшаем возраст на 1
+    if (current_month < month || (current_month == month && current_day < day)) {
+        age--;
+    }
+
+    std::cout << "Ваш возраст: " << age << " лет\n";  // Вывод возраста
+
+    return 0;  // Успешное завершение программы
+}
