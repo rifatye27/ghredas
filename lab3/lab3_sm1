@@ -1,0 +1,29 @@
+// Программа вычисляет индекс массы тела (ИМТ) по весу и росту
+
+#include <iostream>  // Для ввода-вывода
+#include <iomanip>   // Для управления точностью вывода
+#include <windows.h> // Для установки кодировки UTF-8 в консоли Windows
+
+int main() {
+    // Установка кодировки UTF-8 для корректного отображения кириллицы
+    SetConsoleCP(65001);        // Кодировка ввода
+    SetConsoleOutputCP(65001);  // Кодировка вывода
+
+    double weight, height_cm;  // Вес (кг) и рост (см)
+
+    std::cout << "Введите вес (кг): ";
+    std::cin >> weight;
+    std::cout << "Введите рост (см): ";  // Теперь просим сантиметры
+    std::cin >> height_cm;
+
+    double height = height_cm / 100.0;  // Переводим см в метры
+
+    // Вычисление ИМТ = вес / рост²
+    double bmi = weight / (height * height); // Вычисляем ИМТ
+
+    // Вывод результата с округлением до 1 знака
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "Ваш ИМТ: " << bmi << "\n";
+
+    return 0; // Успешное завершение программы
+}
